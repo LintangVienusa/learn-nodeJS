@@ -1,0 +1,22 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "Learn nodeJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LintangVienusa/learn-nodeJS.git"
+  },
+  "author": "Lintang Vienusa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LintangVienusa/learn-nodeJS/issues"
+  },
+  "homepage": "https://github.com/LintangVienusa/learn-nodeJS#readme",
+  "dependencies": {
+    "moment": "^2.29.4"
+  }
+}
