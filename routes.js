@@ -6,19 +6,26 @@ router.get('/', (req, res, next) =>{
         status: "OK",
         message: "Welcome",
         pages,
-        total
+        total,
+        code: "200"
     }) 
 })
 
 router.get('/articles/:id', (req, res) => {
     res.send({
-        id: req.params.id
+        id: req.params.id,
+        code: "200"
     })
+})
+
+router.post ('/articles/', (req, res) => {
+    res.json(req, body)
 })
 
 router.get('/articles/:id', (req, res) => {
     res.send({
         id: req.params.id, 
+        code: "200"
     })
 })
 
@@ -26,6 +33,7 @@ router.get('/:category/:condition', (req, res) => {
     res.send({
         category: req.params.category,
         condition: req.params.condition,
+        code: "200"
     })
 })
 
