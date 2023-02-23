@@ -4,26 +4,9 @@ const upload = multer({dest: 'uploads'})
 const fs = require('fs');
 const path = require('path');
 const connection = require('../../config/mysql');
+const productController = require('./controller');
 
-router.get('/product', (req, res) =>{
-    connection.connect();
-    connection.query({
-        sql: 'SELECT * FROM tb_product',
-    }, (error, result) => {
-        if(error) {
-            res.send({
-                status: 'Failed',
-                response: 'Failed to fetch data'
-            })
-        }else{
-            res.send({
-                status: 'OK',
-                response: result
-            })
-        }
-    })
-    connection.end();
-})
+router.get('/product', productController.index);
 
 router.get('/product/:id', (req, res) => {
     // connection.connect();
