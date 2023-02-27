@@ -6,6 +6,23 @@ const index = (req, res) =>{
     }, _response(res));
 }
 
+const detailProduct = (req, res) => {
+    connection.query({
+        sql: 'SELECT * FROM tb_product WHERE id = ?',
+        values: [req.params.id]
+    }, _response(res));
+}
+
+const storeProduct = (req, res) => {
+    const [name, price, stock, status] = req.body;
+    connection.query({
+        sql: 'INSERT INTO tb_product (name, price, stock, status) VALUES (?, ?, ?, ?)',
+        values: [name, price, stock, status]
+    }, _response(res));
+}
+
+
+
 const _response = (res) => {
     return (error, result) => {
         if(error) {
@@ -23,5 +40,7 @@ const _response = (res) => {
 }
 
 module.exports = {
-    index
+    index,
+    detailProduct,
+    storeProduct
 }
