@@ -51,7 +51,7 @@ const updateProduct = (req, res) => {
         sql = 'UPDATE tb_product SET id = ?, name = ?, price = ?, stock = ?, status = ?, image_path = ? WHERE id = ?';
         values = [ parseInt(id), name, price, stock, status, `http://localhost:3000/public/${image.originalname}`, req.params.id ];
     }else{
-        sql = 'UPDATE tb_product SET id = ?, name = ?, price = ?, stock = ?, status = ?';
+        sql = 'UPDATE tb_product SET id = ?, name = ?, price = ?, stock = ?, status = ? WHERE id = ?';
         values = [parseInt(id), name, price, stock, status, req.params.id ]  
     }   
 

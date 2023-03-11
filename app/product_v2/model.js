@@ -1,7 +1,7 @@
 const sequelize = require('../../config/sequelize');
 const { Sequelize, DataTypes } = require('sequelize');
 
-const Catalog = sequelize.define('Catalog', {
+const Catalog = sequelize.define('catalogs', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -26,4 +26,6 @@ const Catalog = sequelize.define('Catalog', {
     }
 });
 
-module.exports = Catalog;
+
+
+module.exports = Catalog ;
