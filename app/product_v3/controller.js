@@ -6,6 +6,7 @@ const fs = require('fs');
 const index =  (req, res) => {
     db.collection('catalogs').find()
         .toArray()
+        .then(res.set('Access-Control-Allow-Origin', '*'))
         .then(result => res.send(result))
         .catch(error => res.send(error))
 }

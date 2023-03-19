@@ -2,6 +2,7 @@ require('./config/mongoose');
 const express = require('express');
 const path = require('path')
 const app = express();
+const cors = require('cors');
 // const productRouter = require('./app/product/routes');
 // const catalogtRouter = require('./app/product_v2/router');
 const catalogRouterv3 = require('./app/product_v3/routes');
@@ -27,6 +28,7 @@ app.use((req, res, next) => {
     })
     next()
 })
+app.use(cors())
 
 
 app.listen(3000, () => console.log('App running on: http://localhost:3000'));
