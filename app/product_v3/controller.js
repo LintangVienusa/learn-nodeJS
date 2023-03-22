@@ -15,6 +15,7 @@ const getDetail =  (req, res) => {
     const {id}= req.params;
     console.log(id);
     db.collection('catalogs').findOne({_id: new ObjectId(id)})
+    .then(res.set('Access-Control-Allow-Origin', '*'))
     .then(result => res.send(result))
     .catch(error => res.send )
 }
@@ -26,6 +27,7 @@ const storeProduct = (req, res) => {
         const target = path.join(__dirname, '../../uploads', image.originalname);
         fs.renameSync(image.path, target);
         db.collection('catalogs').insertOne({name, price, stock, isDisplay, image_path: `http://localhost:3000/public/${image.originalname}`})
+        .then(res.set('Access-Control-Allow-Origin', '*'))
         .then(result => res.send(result))
         .catch(error => res.send(error))
     }
