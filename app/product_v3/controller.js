@@ -35,8 +35,8 @@ const storeProduct = (req, res) => {
 
 const updateProduct = (req, res) => {
     const {id} = req.params;
-    const {name, price, stock, isDisplay} = req.body;
-    db.collection('catalogs').updateOne({_id: new ObjectId(id)}, {$set: { stock: stock }})
+    const {name, price, stock} = req.body;
+    db.collection('catalogs').updateOne({_id: new ObjectId(id)}, {$set: { name: name, price: price, stock: stock }})
     .then(res.set('Access-Control-Allow-Origin', '*'))
     .then(result => res.send(result))
     .catch(error => res.send(error))
